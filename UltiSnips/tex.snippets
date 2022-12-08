@@ -13,27 +13,9 @@ endglobal
 
 
 snippet template "Basic template" b
-\documentclass[a4paper]{article}
+\documentclass{article}
 
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
-\usepackage{textcomp}
-\usepackage[dutch]{babel}
-\usepackage{amsmath, amssymb}
-
-
-% figure support
-\usepackage{import}
-\usepackage{xifthen}
-\pdfminorversion=7
-\usepackage{pdfpages}
-\usepackage{transparent}
-\newcommand{\incfig}[1]{%
-	\def\svgwidth{\columnwidth}
-	\import{./figures/}{#1.pdf_tex}
-}
-
-\pdfsuppresswarningpagegroup=1
+\usepackage[effectful]{preamble}
 
 \begin{document}
 	$0
@@ -47,8 +29,8 @@ snippet beg "begin{} / end{}" bA
 endsnippet
 
 priority 100
-snippet ... "ldots" iA
-\ldots
+snippet ... "dots" iA
+\dots
 endsnippet
 
 snippet table "Table environment" b
@@ -75,6 +57,12 @@ snippet enum "Enumerate" bA
 \begin{enumerate}
 	\item $0
 \end{enumerate}
+endsnippet
+
+snippet aenum "Alphanumeric Enumerate" bA
+\begin{alphenum}
+	\item $0
+\end{alphenum}
 endsnippet
 
 snippet item "Itemize" bA
@@ -265,11 +253,11 @@ snippet conj "conjugate" iA
 endsnippet
 
 snippet sum "sum" w
-\sum_{n=${1:1}}^{${2:\infty}} ${3:a_n z^n}
+\sum_{n = ${1:1}}^{${2:\infty}} ${3:a_n z^n}
 endsnippet
 
 snippet taylor "taylor" w
-\sum_{${1:k}=${2:0}}^{${3:\infty}} ${4:c_$1} (x-a)^$1 $0
+\sum_{${1:n} = ${2:0}}^{${3:\infty}} ${4:c_$1} (x - a)^$1 $0
 endsnippet
 
 snippet lim "limit" w
@@ -290,7 +278,7 @@ endsnippet
 
 context "math()"
 snippet sq "\sqrt{}" iA
-\sqrt{${1:${VISUAL}}} $0
+\sqrt{${1:${VISUAL}}}$0
 endsnippet
 
 context "math()"
@@ -326,21 +314,21 @@ snippet rij "mrij" i
 endsnippet
 
 snippet <= "leq" iA
-\le 
+\le
 endsnippet
 
 snippet >= "geq" iA
-\ge 
+\ge
 endsnippet
 
 context "math()"
 snippet EE "geq" iA
-\exists 
+\exists
 endsnippet
 
 context "math()"
 snippet AA "forall" iA
-\forall 
+\forall
 endsnippet
 
 context "math()"
@@ -432,11 +420,6 @@ endsnippet
 priority 100
 snippet ** "cdot" iA
 \cdot 
-endsnippet
-
-context "math()"
-snippet norm "norm" iA
-\|$1\|$0
 endsnippet
 
 priority 100
@@ -597,11 +580,7 @@ snippet bigfun "Big function" iA
 \begin{align*}
 	$1: $2 &\longrightarrow $3 \\\\
 	$4 &\longmapsto $1($4) = $0
-.\end{align*}
-endsnippet
-
-snippet cvec "column vector" iA
-\begin{pmatrix} ${1:x}_${2:1}\\\\ \vdots\\\\ $1_${2:n} \end{pmatrix}
+\end{align*}
 endsnippet
 
 priority 10

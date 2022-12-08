@@ -66,7 +66,7 @@ require('packer').startup(function(use)
 
     -- Highlights instances of letters on a line for easier f[x]
     -- TODO: Maybe remove now that we have hop.nvim?
-    use { "unblevable/quick-scope" }
+    -- use { "unblevable/quick-scope" }
 
     use {
         'phaazon/hop.nvim',
@@ -127,6 +127,9 @@ require('packer').startup(function(use)
             local lspconfig = require("lspconfig")
 
             lspconfig.zls.setup {}
+            -- lspconfig.pylsp.setup {}
+            lspconfig.pyright.setup {}
+            lspconfig.clangd.setup {}
 
             lspconfig.sumneko_lua.setup {
                 settings = {
